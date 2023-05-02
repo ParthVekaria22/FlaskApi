@@ -1,0 +1,4 @@
+Flask
+base64
+numpy
+cv2
