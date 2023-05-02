@@ -3,9 +3,9 @@ import base64
 import numpy as np
 import cv2
 
-application = Flask(__name__)
+app = Flask(__name__)
 
-@application.route('/compress', methods=['POST'])
+@app.route('/compress', methods=['POST'])
 def compress():
     # Get the image data from the request
     json_data = request.get_json()
@@ -33,7 +33,7 @@ def compress():
     # Return the JSON response
     return jsonify(response_data)
 
-@application.route('/resize', methods=['POST'])
+@app.route('/resize', methods=['POST'])
 def resize_image():
     data = request.get_json()
 
@@ -61,4 +61,4 @@ def resize_image():
     return jsonify(response)
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run(host="0.0.0.0",port=80,debug=True)
